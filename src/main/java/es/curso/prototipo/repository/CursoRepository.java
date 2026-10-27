@@ -3,45 +3,17 @@ package es.curso.prototipo.repository;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-
 import es.curso.prototipo.model.Curso;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 
-@Repository
-@Transactional(readOnly = true)
-public class CursoRepository {
+public interface CursoRepository {
 
-	@PersistenceContext
-	private EntityManager em;
+	List<Curso> buscarTodos();
 
-	public List<Curso> buscarTodos() {
-		return em.createQuery("select c from Curso c", Curso.class).getResultList();
-	}
+	Optional<Curso> buscarPorId(Long id);
 
-	public Optional<Curso> buscarPorId(Long id) {
-		return Optional.ofNullable(em.find(Curso.class, id));
-	}
+	List<Curso> buscarPorAutor(String autor);
 
-	public List<Curso> buscarPorAutor(String autor) {
-		return em.createQuery("select c from Curso c where c.autor = :autor", Curso.class)
-				.setParameter("autor", autor)
-				.getResultList();
-	}
+	Curso guardar(Curso curso);
 
-	@Transactional
-	public Curso guardar(Curso curso) {
-		if (curso.getId() == null) {
-			em.persist(curso);
-			return curso;
-		}
-		return em.merge(curso);
-	}
-
-	@Transactional
-	public void borrar(Long id) {
-		buscarPorId(id).ifPresent(em::remove);
-	}
+	void borrar(Long id);
 }
