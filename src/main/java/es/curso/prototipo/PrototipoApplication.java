@@ -1,4 +1,4 @@
-package com.example.prototipo;
+package es.curso.prototipo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
