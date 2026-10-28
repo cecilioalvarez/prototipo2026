@@ -1,4 +1,4 @@
-package es.curso.prototipo.repository;
+package es.curso.prototipo.repository.jpa;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import es.curso.prototipo.model.Curso;
+import es.curso.prototipo.repository.CursoRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
