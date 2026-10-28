@@ -1,4 +1,4 @@
-package es.curso.prototipo.controller;
+package es.curso.prototipo.controller.profesor;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

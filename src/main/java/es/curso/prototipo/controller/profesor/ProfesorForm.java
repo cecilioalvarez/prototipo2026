@@ -1,5 +1,6 @@
-package es.curso.prototipo.controller;
+package es.curso.prototipo.controller.profesor;
 
+import es.curso.prototipo.controller.UsuarioForm;
 import es.curso.prototipo.model.Profesor;
 
 /** Datos del formulario de alta de profesor. */

@@ -1,4 +1,4 @@
-package es.curso.prototipo.controller;
+package es.curso.prototipo.controller.curso;
 
 import es.curso.prototipo.model.Curso;
 import jakarta.validation.constraints.Min;
