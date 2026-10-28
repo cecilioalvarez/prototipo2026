@@ -31,6 +31,7 @@
 								<th scope="col">Título</th>
 								<th scope="col">Autor</th>
 								<th scope="col" class="text-end">Duración</th>
+								<th scope="col" class="text-end">Acciones</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -39,6 +40,10 @@
 								<td th:text="${curso.titulo}"></td>
 								<td th:text="${curso.autor}"></td>
 								<td class="text-end" th:text="${curso.duracion}"></td>
+								<td class="text-end">
+									<a th:href="@{/cursos/{id}/imparticiones(id=${curso.id})}"
+										class="btn btn-outline-primary btn-sm">Imparticiones</a>
+								</td>
 							</tr>
 						</tbody>
 					</table>
