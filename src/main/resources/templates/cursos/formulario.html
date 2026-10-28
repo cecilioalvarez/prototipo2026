@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Nuevo curso')}"></head>
+<body>
+	<nav th:replace="~{fragments/layout :: navbar}"></nav>
+
+	<main class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-8 col-lg-6">
+				<div class="card shadow-sm">
+					<div class="card-header">
+						<h1 class="h4 mb-0">Nuevo curso</h1>
+					</div>
+					<div class="card-body">
+						<form th:action="@{/cursos}" th:object="${cursoForm}" method="post" novalidate>
+
+							<div class="mb-3">
+								<label for="titulo" class="form-label">Título</label>
+								<input type="text" id="titulo" th:field="*{titulo}" class="form-control"
+									th:classappend="${#fields.hasErrors('titulo')} ? 'is-invalid'" required>
+								<div class="invalid-feedback" th:errors="*{titulo}">Error</div>
+							</div>
+
+							<div class="mb-3">
+								<label for="autor" class="form-label">Autor</label>
+								<input type="text" id="autor" th:field="*{autor}" class="form-control"
+									th:classappend="${#fields.hasErrors('autor')} ? 'is-invalid'" required>
+								<div class="invalid-feedback" th:errors="*{autor}">Error</div>
+							</div>
+
+							<div class="mb-4">
+								<label for="duracion" class="form-label">Duración (horas)</label>
+								<input type="number" id="duracion" th:field="*{duracion}" class="form-control" min="1"
+									th:classappend="${#fields.hasErrors('duracion')} ? 'is-invalid'" required>
+								<div class="invalid-feedback" th:errors="*{duracion}">Error</div>
+							</div>
+
+							<div class="d-flex justify-content-end gap-2">
+								<a th:href="@{/cursos}" class="btn btn-outline-secondary">Cancelar</a>
+								<button type="submit" class="btn btn-primary">Guardar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+</body>
+</html>
