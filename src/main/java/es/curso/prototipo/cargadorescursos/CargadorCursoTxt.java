@@ -16,6 +16,11 @@ public class CargadorCursoTxt extends CargadorCursos {
 	}
 
 	@Override
+	protected String getExtension() {
+		return ".txt";
+	}
+
+	@Override
 	protected List<Curso> convertirLineas(List<String> lineas) {
 		List<Curso> cursos = new ArrayList<>();
 		Map<String, String> datos = new HashMap<>();

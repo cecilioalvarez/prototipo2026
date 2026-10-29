@@ -16,6 +16,11 @@ public class CargadorCursoCSV extends CargadorCursos {
 	}
 
 	@Override
+	protected String getExtension() {
+		return ".csv";
+	}
+
+	@Override
 	protected List<Curso> convertirLineas(List<String> lineas) {
 		List<Curso> cursos = new ArrayList<>();
 

@@ -1,5 +1,6 @@
 package es.curso.prototipo.cargadorescursos;
 
+import java.io.InputStream;
 import java.util.List;
 
 import es.curso.prototipo.model.Curso;
@@ -17,6 +18,17 @@ public abstract class CargadorCursos {
 	public List<Curso> cargarCursos(String ruta) {
 		return convertirLineas(lector.leerLineas(ruta));
 	}
+
+	public List<Curso> cargarCursos(InputStream entrada) {
+		return convertirLineas(lector.leerLineas(entrada));
+	}
+
+	/** Indica si este cargador sabe leer el fichero, según su extensión. */
+	public boolean admite(String nombreFichero) {
+		return nombreFichero != null && nombreFichero.toLowerCase().endsWith(getExtension());
+	}
+
+	protected abstract String getExtension();
 
 	protected abstract List<Curso> convertirLineas(List<String> lineas);
 }
