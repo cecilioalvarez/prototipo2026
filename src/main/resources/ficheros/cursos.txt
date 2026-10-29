@@ -1,0 +1,15 @@
+titulo=Java Avanzado
+autor=Cecilio Álvarez
+duracion=40
+
+titulo=Spring Security
+autor=Ana López
+duracion=20
+
+titulo=Microservicios con Spring Cloud
+autor=Pedro Martín
+duracion=35
+
+titulo=Git y GitHub
+autor=Laura Gómez
+duracion=8
